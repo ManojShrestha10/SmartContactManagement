@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" data-th-href="@{'/css/tailwind.css'}" />
     <link rel="stylesheet" data-th-href="@{'/css/input.css'}" />
+    <link rel="stylesheet" data-th-href="@{'/css/style.css'}" />
 
     <!-- font awesome -->
     <link
@@ -27,14 +28,22 @@
     />
   </head>
   <body class="dark:bg-gray-900 bg-gray-200 dark:text-white">
-    <div data-th-replace="~{navbar :: navbar}"></div>
+    <!--If user is logged In-->
+    <div th:if="${loggedInUser}">
+      <div data-th-replace="~{user/user_navbar :: user_navbar}"></div>
+    </div>
+    <!--If user is not logged In-->
+    <div th:unless="${loggedInUser}">
+      <div data-th-replace="~{navbar :: navbar}"></div>
+    </div>
+    <!--If user is logged in then show sidebar-->
     <!-- main content -->
     <div class="dark:text-white text-gray-900">
       <section data-th-replace="${content}"></section>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script data-th-src="@{'/javascript/script.js'}"></script>
     <th:block data-th-replace="${script}"></th:block>
   </body>

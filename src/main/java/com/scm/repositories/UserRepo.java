@@ -8,7 +8,7 @@ import com.scm.entities.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, String>  {
-    //extr method db 
+    //extra method db 
     //custrom query methods can be defined here
     // This method will be used to find a user by their email address
     Optional<User> findByEmail(String email);

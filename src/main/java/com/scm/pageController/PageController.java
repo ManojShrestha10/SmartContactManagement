@@ -14,7 +14,6 @@ import com.scm.forms.UserForm;
 import com.scm.helper.Message;
 import com.scm.helper.MessageType;
 import com.scm.services.UserService;
-
 import jakarta.validation.Valid;
 
 @Controller
@@ -86,6 +85,7 @@ public class PageController {
         user.setEmail(userForm.getEmail());
         user.setPassword(userForm.getPassword());
         user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setEnabled(false);
         user.setAbout(userForm.getAbout());
         user.setProfilePic(
                 "https://www.google.com/search?q=messi&rlz=1C5CHFA_enJP1058JP1058&oq=messi&gs_lcrp=EgZjaHJvbWUqBwgAEAAYjwIyBwgAEAAYjwIyDAgBEC4YQxiABBiKBTIMCAIQABhDGIAEGIoFMgwIAxAAGEMYgAQYigUyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYjwLSAQgxMjczajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#vhid=eRC3qNx8JSk27M&vssid=_S-0-aISqCY6B2roPt-ndkA4_61");
@@ -99,5 +99,4 @@ public class PageController {
         System.out.println("User saved");
         return "redirect:/register";
     }
-
 }

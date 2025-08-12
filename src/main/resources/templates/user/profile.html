@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is user Profile.</h1>
-    
-</body>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title data-th-text="${loggedInUser.name}">Profile page</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="flex justify-center pt-5">
+        <h1>Welcome to profile page</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur,
+          ratione!
+        </p>
+      </div>
+    </div>
+    <script>
+      console.log("profile page");
+    </script>
+  </body>
 </html>

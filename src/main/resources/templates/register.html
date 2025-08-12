@@ -15,7 +15,7 @@
         <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
         <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
           <!--message box-->
-          <div data-th-replace="~{message :: messageBox}"></div>
+          <div data-th-replace="message :: messageBox"></div>
           <div
             class="block p-6 border-t-8 border-blue-700 bg-white  rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700"
           >
@@ -30,53 +30,53 @@
             <!--Main form-->
              <form th:action="@{/do-Register}" method="post" th:object="${userForm}" class="mt-4" novalidate>
               <!-- username -->
-            <div class="mb-5">
+            <div class="mb-2">
               <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Username</label>
               <input type="text" id="name" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Manoj Shrestha" required/>
               <p
                th:if="${#fields.hasErrors('name')}"
               th:errors="*{name}"
-              class="text-red-600 px-1 py-2">
+              class="text-red-600 px-1">
             </p>
             </div>
             <!-- email -->
-            <div class="mb-5">
+            <div class="mb-2">
               <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
               <input type="text" id="email" name="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="shresthamanoj123@gmail.com" required />
             <p
                th:if="${#fields.hasErrors('email')}"
               th:errors="*{email}"
-              class="text-red-600 px-1 py-2">
+              class="text-red-600 px-1">
             </p>
             </div>
             <!--password-->
-            <div class="mb-5">
+            <div class="mb-2">
               <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Password</label>
               <input type="password" id="password" name="password"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
               <p
                 th:if="${#fields.hasErrors('password')}"
                 th:errors="*{password}"
-                class="text-red-600 px-1 py-2">
+                class="text-red-600 px-1">
             </p>
             </div>
             <!--Contact-->
-            <div class="mb-5">
+            <div class="mb-2">
               <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Contact</label>
               <input type="text" id="number" name="phoneNumber" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
             <p
                 th:if="${#fields.hasErrors('phoneNumber')}"
                 th:errors="*{phoneNumber}"
-                class="text-red-600 px-1 py-2">
+                class="text-red-600 px-1">
             </p>
             </div>
             <!--Description-->
-            <div class="mb-5">
+            <div class="mb-2">
               <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Write Something About Yourself</label>
               <textarea id="message" rows="4" name="about" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write here..."></textarea>
             <p
                 th:if="${#fields.hasErrors('about')}"
                 th:errors="*{about}"
-                class="text-red-600 px-1 py-2">
+                class="text-red-600 px-1">
             </p>
             </div>
             <!--Submit Button-->
@@ -85,6 +85,7 @@
             <button type="reset" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reset</button>
           </div>
               </form>
+        
           </div>
         </div>
       </div>

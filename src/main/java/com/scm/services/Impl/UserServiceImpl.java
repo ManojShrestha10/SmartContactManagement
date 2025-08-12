@@ -16,13 +16,16 @@ import com.scm.services.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-    @Autowired
-    private UserRepo userRepo;
+    
+    private final UserRepo userRepo;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    UserServiceImpl(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public User saveUser(User user) {
@@ -90,4 +93,8 @@ public class UserServiceImpl implements UserService {
         return userRepo.findAll();
     }
 
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepo.findByEmail(email).orElse(null);
+    }
 }
