@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>contact Page</title>
+  </head>
+  <body>
+    <div id="content" class="text-center text-2xl mt-10">
+        <div th:if="${session.message != null}">
+            <div th:text="${session.message.content}"
+              th:classappend="'text-' + ${session.message.type}" class="text-center mb-4 text-red-600">
+            </div>
+      <!-- Message will be displayed here -->
+    </div>
+    <script>
+      console.log("Verification_error page");
+    </script>
+  </body>
+</html>

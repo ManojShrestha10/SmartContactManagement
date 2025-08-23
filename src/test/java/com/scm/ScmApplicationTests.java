@@ -18,7 +18,7 @@ class ScmApplicationTests {
 
 	@Test
 	void sendEmailTest() {
-		emailService.sendEmail("shresthamanoj522@gmail.com", "You are don", "You are enjoying!");
+		emailService.sendEmail("shresthamanoj522@gmail.com", "About You", "This is a test email from SCM application.");
 	}
 
 }

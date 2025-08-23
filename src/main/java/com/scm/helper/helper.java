@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 public class helper {
 
     public static String getEmailOfLoggedInUser(Authentication authentication) {
-
         // login with email and password
         if (authentication instanceof OAuth2AuthenticationToken) {
 
@@ -31,4 +30,13 @@ public class helper {
         return authentication.getName();
 
     }
+    // Generate link for email verification
+    public static String getLinkForEmailVerification(String emailToken) {
+        // gennerate the link for email verification 
+        String link = "http://localhost:8282/auth/verify-email?token=" + emailToken;
+        // return the link 
+        return link;
+
+    }
 }
+
