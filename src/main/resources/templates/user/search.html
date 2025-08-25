@@ -18,12 +18,15 @@
       <div class="contact_container">
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <!-- Form -->
+            <div
+            class="flex md:flex-row flex-col items-center px-4 justify-between bg-white dark:bg-gray-900"
+          >
           <form
             th:action="@{'/user/contact/search'}"
             th:object="${contactSearchForm}"
           >
             <div
-              class="flex items-center justify-start space-x-3 flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900"
+              class="flex items-center justify-start space-x-3 flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4"
             >
               <!-- select box-->
               <select
@@ -74,7 +77,19 @@
               </button>
             </div>
           </form>
+          <!-- Add Export button-->
+            <div>
+              <button
+                type="button"
+                onclick="exportData()"
+                class="px-3 py-2 bg-green-800 text-white rounded text-right"
+              >
+                Export
+              </button>
+            </div>
+          </div>
           <table
+          id="contact-table"
             data-th-unless="${pageContact.empty}"
             class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
           >
@@ -195,6 +210,17 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@linways/table-to-excel@1.0.4/dist/tableToExcel.min.js"></script>
     <script th:src="@{'/javascript/Contact.js'}"></script>
+    <script>
+      function exportData() {
+        TableToExcel.convert(document.getElementById("contact-table"), {
+          name: "contact.xlsx",
+          sheet: {
+            name: "Sheet 1",
+          },
+        });
+      }
+    </script>
   </body>
 </html>
